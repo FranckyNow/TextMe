@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <a routerLink="/"><img src="../../assets/icon/T_-2.png" /></a>
+        <div>
+            <div *ngIf="!this.authService.isLoggedIn">
+                <a routerLink="/sign-in">Connexion</a>
+                <a routerLink="/register-user">Inscription</a>
+            </div>
+            <div *ngIf="this.authService.isLoggedIn">
+                <a routerLink="/">Article automatique</a>
+                <a routerLink="/dashboard">Profil</a>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

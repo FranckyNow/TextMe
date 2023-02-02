@@ -1,0 +1,253 @@
+[debug] [2023-01-23T20:06:13.061Z] ----------------------------------------------------------------------
+[debug] [2023-01-23T20:06:13.062Z] Command:       /usr/local/bin/node /opt/homebrew/bin/firebase deploy
+[debug] [2023-01-23T20:06:13.062Z] CLI Version:   11.21.0
+[debug] [2023-01-23T20:06:13.062Z] Platform:      darwin
+[debug] [2023-01-23T20:06:13.063Z] Node Version:  v16.13.0
+[debug] [2023-01-23T20:06:13.067Z] Time:          Mon Jan 23 2023 21:06:13 GMT+0100 (heure normale d’Europe centrale)
+[debug] [2023-01-23T20:06:13.067Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-23T20:06:13.098Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-23T20:06:13.098Z] > authorizing via signed-in user (franck.gomez18.fg@gmail.com)
+[debug] [2023-01-23T20:06:13.098Z] [iam] checking project textme-4b73b for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2023-01-23T20:06:13.099Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/textme-4b73b:testIamPermissions [none]
+[debug] [2023-01-23T20:06:13.099Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/textme-4b73b:testIamPermissions x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:13.100Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/textme-4b73b:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2023-01-23T20:06:13.300Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/textme-4b73b:testIamPermissions 200
+[debug] [2023-01-23T20:06:13.300Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/textme-4b73b:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2023-01-23T20:06:13.300Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/textme-4b73b/serviceAccounts/textme-4b73b@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-01-23T20:06:13.300Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/textme-4b73b/serviceAccounts/textme-4b73b@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-01-23T20:06:13.572Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/textme-4b73b/serviceAccounts/textme-4b73b@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-01-23T20:06:13.572Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/textme-4b73b/serviceAccounts/textme-4b73b@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'textme-4b73b'...
+[info] 
+[info] i  deploying firestore, functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2023-01-23T20:06:15.700Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b:test [none]
+[debug] [2023-01-23T20:06:15.700Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b:test [omitted]
+[debug] [2023-01-23T20:06:16.475Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b:test 200
+[debug] [2023-01-23T20:06:16.475Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2023-01-23T20:06:16.478Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b [none]
+[debug] [2023-01-23T20:06:17.180Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b 200
+[debug] [2023-01-23T20:06:17.180Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b {"projectId":"textme-4b73b","projectNumber":"404682834801","displayName":"textme","name":"projects/textme-4b73b","resources":{"hostingSite":"textme-4b73b","storageBucket":"textme-4b73b.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_9375dc66-268d-4e91-ae79-23f7f50966f8"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-01-23T20:06:17.183Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-01-23T20:06:17.183Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:17.184Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-01-23T20:06:17.185Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:17.185Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com [none]
+[debug] [2023-01-23T20:06:17.185Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:17.186Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com [none]
+[debug] [2023-01-23T20:06:17.186Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:18.036Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com 200
+[debug] [2023-01-23T20:06:18.037Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com [omitted]
+[warn] ⚠  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2023-01-23T20:06:18.037Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2023-01-23T20:06:18.037Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:18.039Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/runtimeconfig.googleapis.com 200
+[debug] [2023-01-23T20:06:18.039Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-01-23T20:06:18.042Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudfunctions.googleapis.com 200
+[debug] [2023-01-23T20:06:18.042Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-01-23T20:06:18.043Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com 200
+[debug] [2023-01-23T20:06:18.043Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2023-01-23T20:06:18.043Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2023-01-23T20:06:18.043Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:19.568Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com:enable 200
+[debug] [2023-01-23T20:06:19.569Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2023-01-23T20:06:19.829Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com:enable 200
+[debug] [2023-01-23T20:06:19.829Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2023-01-23T20:06:29.573Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com [none]
+[debug] [2023-01-23T20:06:29.573Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:29.831Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com [none]
+[debug] [2023-01-23T20:06:29.832Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com x-goog-quota-user=projects/textme-4b73b
+[debug] [2023-01-23T20:06:30.498Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com 200
+[debug] [2023-01-23T20:06:30.499Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-01-23T20:06:30.731Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com 200
+[debug] [2023-01-23T20:06:30.731Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/textme-4b73b/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-01-23T20:06:30.733Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b/adminSdkConfig [none]
+[debug] [2023-01-23T20:06:30.952Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b/adminSdkConfig 200
+[debug] [2023-01-23T20:06:30.952Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b/adminSdkConfig {"projectId":"textme-4b73b","storageBucket":"textme-4b73b.appspot.com","locationId":"europe-west"}
+[debug] [2023-01-23T20:06:30.953Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/textme-4b73b/configs [none]
+[debug] [2023-01-23T20:06:31.252Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/textme-4b73b/configs 200
+[debug] [2023-01-23T20:06:31.252Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/textme-4b73b/configs {}
+[debug] [2023-01-23T20:06:31.256Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2023-01-23T20:06:31.633Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/functions/src/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.2.0",
+    "firebase-functions": "^3.21.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "private": true
+}
+[debug] [2023-01-23T20:06:31.633Z] Building nodejs source
+[debug] [2023-01-23T20:06:31.633Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-01-23T20:06:31.768Z] Serving at port 9005
+
+[debug] [2023-01-23T20:06:31.828Z] Got response from /__/functions.yaml {"endpoints":{"stripeCheckout":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"stripeCheckout"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-01-23T20:06:31.831Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/franck/Documents/ANGULAR/textme/functions (62.33 KB) for uploading 
+[debug] [2023-01-23T20:06:31.869Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/-/functions [none]
+[debug] [2023-01-23T20:06:32.353Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/-/functions 200
+[debug] [2023-01-23T20:06:32.353Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/-/functions {}
+[debug] [2023-01-23T20:06:32.355Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/textme-4b73b/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2023-01-23T20:06:33.348Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/textme-4b73b/locations/-/functions 200
+[debug] [2023-01-23T20:06:33.348Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/textme-4b73b/locations/-/functions {}
+[debug] [2023-01-23T20:06:33.357Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b [none]
+[debug] [2023-01-23T20:06:33.724Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b 200
+[debug] [2023-01-23T20:06:33.724Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/textme-4b73b {"projectId":"textme-4b73b","projectNumber":"404682834801","displayName":"textme","name":"projects/textme-4b73b","resources":{"hostingSite":"textme-4b73b","storageBucket":"textme-4b73b.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_9375dc66-268d-4e91-ae79-23f7f50966f8"}
+[debug] [2023-01-23T20:06:33.728Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases pageSize=10&pageToken=
+[debug] [2023-01-23T20:06:33.730Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2023-01-23T20:06:33.976Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2023-01-23T20:06:33.976Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/-/indexes {"indexes":[{"name":"projects/textme-4b73b/databases/(default)/collectionGroups/articles/indexes/CICAgOjXh4EK","queryScope":"COLLECTION","fields":[{"fieldPath":"userId","order":"ASCENDING"},{"fieldPath":"dateArticle","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY"}]}
+[debug] [2023-01-23T20:06:33.977Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2023-01-23T20:06:34.399Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2023-01-23T20:06:34.399Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/textme-4b73b/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] i  firestore: The following indexes are defined in your project but are not present in your firestore indexes file:
+	(articles) -- (userId,ASCENDING) (dateArticle,DESCENDING)  
+[debug] [2023-01-23T20:06:34.772Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases 200
+[debug] [2023-01-23T20:06:34.773Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases {"releases":[{"name":"projects/textme-4b73b/releases/cloud.firestore","rulesetName":"projects/textme-4b73b/rulesets/b62c3c39-a5a8-42f4-82cd-b63859cfff46","createTime":"2023-01-22T18:30:37.911547Z","updateTime":"2023-01-22T19:04:23.557513Z"}]}
+[debug] [2023-01-23T20:06:34.773Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets/b62c3c39-a5a8-42f4-82cd-b63859cfff46 [none]
+[debug] [2023-01-23T20:06:35.663Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets/b62c3c39-a5a8-42f4-82cd-b63859cfff46 200
+[debug] [2023-01-23T20:06:35.663Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets/b62c3c39-a5a8-42f4-82cd-b63859cfff46 [omitted]
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2023-01-23T20:06:35.666Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets [none]
+[debug] [2023-01-23T20:06:35.666Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets [omitted]
+[debug] [2023-01-23T20:06:36.498Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets 200
+[debug] [2023-01-23T20:06:36.499Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/textme-4b73b/rulesets {"name":"projects/textme-4b73b/rulesets/8e484321-c7db-4af8-9a44-415872608350","source":{"files":[{"content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if false;\n    }\n  }\n}","name":"firestore.rules"}]},"createTime":"2023-01-23T20:06:36.400911Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2023-01-23T20:06:36.499Z] [rules] created ruleset projects/textme-4b73b/rulesets/8e484321-c7db-4af8-9a44-415872608350
+[info] i  firestore: Deleting 1 indexes... 
+[debug] [2023-01-23T20:07:10.220Z] >>> [apiv2][query] DELETE https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/articles/indexes/CICAgOjXh4EK [none]
+[debug] [2023-01-23T20:07:10.581Z] <<< [apiv2][status] DELETE https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/articles/indexes/CICAgOjXh4EK 200
+[debug] [2023-01-23T20:07:10.581Z] <<< [apiv2][body] DELETE https://firestore.googleapis.com/v1/projects/textme-4b73b/databases/(default)/collectionGroups/articles/indexes/CICAgOjXh4EK {}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
+[debug] [2023-01-23T20:07:10.584Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2023-01-23T20:07:10.584Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2023-01-23T20:07:21.204Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2023-01-23T20:07:21.205Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-706551621648.us-central1.cloudfunctions.appspot.com/c877a909-f64a-45cf-8270-3093988c4dde.zip?GoogleAccessId=service-404682834801@gcf-admin-robot.iam.gserviceaccount.com&Expires=1674506241&Signature=GNO8pSye8GK%2BEpPTqQZS6L8Eq9fquMmZzLTuFuHaes2ABfIIOcIdPcE9jItzFC7ZBr88q2%2FKt%2BFbGl%2BgJlpWXa0Dh4ZmlK93FyHg9TdYP4eZdV126EHs%2F14LpAnEgQWFOI0A3kpEL4s0B2pbay0XrDmyEpr4J6%2F4O7tldKMaqHkvN6xLgxGTw6u7TutwzpH1vPdxrsGqtXgA9p6BveGl00MaYoNW1hpXS21vTynBrkoa9XQPl4GxCLe9luFmpipLAeM%2FReSJBUzLJn7Zb2n%2FLxBZrK%2BEvB%2FEtJLHsscoWThdUIMqZaX2E21evraRXhRz%2FjUW7LDI7GqgWmBhOcGHvg%3D%3D"}
+[debug] [2023-01-23T20:07:21.207Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-706551621648.us-central1.cloudfunctions.appspot.com/c877a909-f64a-45cf-8270-3093988c4dde.zip GoogleAccessId=service-404682834801%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1674506241&Signature=GNO8pSye8GK%2BEpPTqQZS6L8Eq9fquMmZzLTuFuHaes2ABfIIOcIdPcE9jItzFC7ZBr88q2%2FKt%2BFbGl%2BgJlpWXa0Dh4ZmlK93FyHg9TdYP4eZdV126EHs%2F14LpAnEgQWFOI0A3kpEL4s0B2pbay0XrDmyEpr4J6%2F4O7tldKMaqHkvN6xLgxGTw6u7TutwzpH1vPdxrsGqtXgA9p6BveGl00MaYoNW1hpXS21vTynBrkoa9XQPl4GxCLe9luFmpipLAeM%2FReSJBUzLJn7Zb2n%2FLxBZrK%2BEvB%2FEtJLHsscoWThdUIMqZaX2E21evraRXhRz%2FjUW7LDI7GqgWmBhOcGHvg%3D%3D
+[debug] [2023-01-23T20:07:21.207Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-706551621648.us-central1.cloudfunctions.appspot.com/c877a909-f64a-45cf-8270-3093988c4dde.zip [stream]
+[debug] [2023-01-23T20:07:21.851Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-706551621648.us-central1.cloudfunctions.appspot.com/c877a909-f64a-45cf-8270-3093988c4dde.zip 200
+[debug] [2023-01-23T20:07:21.851Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-706551621648.us-central1.cloudfunctions.appspot.com/c877a909-f64a-45cf-8270-3093988c4dde.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[debug] [2023-01-23T20:07:21.853Z] [rules] releasing cloud.firestore with ruleset projects/textme-4b73b/rulesets/8e484321-c7db-4af8-9a44-415872608350
+[debug] [2023-01-23T20:07:21.853Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases/cloud.firestore [none]
+[debug] [2023-01-23T20:07:21.854Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases/cloud.firestore {"release":{"name":"projects/textme-4b73b/releases/cloud.firestore","rulesetName":"projects/textme-4b73b/rulesets/8e484321-c7db-4af8-9a44-415872608350"}}
+[debug] [2023-01-23T20:07:22.693Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases/cloud.firestore 200
+[debug] [2023-01-23T20:07:22.693Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/textme-4b73b/releases/cloud.firestore {"name":"projects/textme-4b73b/releases/cloud.firestore","rulesetName":"projects/textme-4b73b/rulesets/8e484321-c7db-4af8-9a44-415872608350","createTime":"2023-01-22T18:30:37.911547Z","updateTime":"2023-01-23T20:07:22.643299Z"}
+[debug] [2023-01-23T20:07:22.693Z] [rules] updated release projects/textme-4b73b/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[info] i  functions: creating Node.js 16 function stripeCheckout(us-central1)... 
+[debug] [2023-01-23T20:07:22.700Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions [none]
+[debug] [2023-01-23T20:07:22.701Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions {"name":"projects/textme-4b73b/locations/us-central1/functions/stripeCheckout","sourceUploadUrl":"https://storage.googleapis.com/uploads-706551621648.us-central1.cloudfunctions.appspot.com/c877a909-f64a-45cf-8270-3093988c4dde.zip?GoogleAccessId=service-404682834801@gcf-admin-robot.iam.gserviceaccount.com&Expires=1674506241&Signature=GNO8pSye8GK%2BEpPTqQZS6L8Eq9fquMmZzLTuFuHaes2ABfIIOcIdPcE9jItzFC7ZBr88q2%2FKt%2BFbGl%2BgJlpWXa0Dh4ZmlK93FyHg9TdYP4eZdV126EHs%2F14LpAnEgQWFOI0A3kpEL4s0B2pbay0XrDmyEpr4J6%2F4O7tldKMaqHkvN6xLgxGTw6u7TutwzpH1vPdxrsGqtXgA9p6BveGl00MaYoNW1hpXS21vTynBrkoa9XQPl4GxCLe9luFmpipLAeM%2FReSJBUzLJn7Zb2n%2FLxBZrK%2BEvB%2FEtJLHsscoWThdUIMqZaX2E21evraRXhRz%2FjUW7LDI7GqgWmBhOcGHvg%3D%3D","entryPoint":"stripeCheckout","runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"c6596ddc61355e80c5b854fe99e56b73b63add7d"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"textme-4b73b\",\"storageBucket\":\"textme-4b73b.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"textme-4b73b","EVENTARC_CLOUD_EVENT_SOURCE":"projects/textme-4b73b/locations/us-central1/functions/stripeCheckout"}}
+[debug] [2023-01-23T20:07:23.061Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions 403
+[debug] [2023-01-23T20:07:23.061Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/textme-4b73b/locations/us-central1/functions {"error":{"code":403,"message":"Unable to retrieve the repository metadata for projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts. Ensure that the Cloud Functions service account has 'artifactregistry.repositories.list' and 'artifactregistry.repositories.get' permissions. You can add the permissions by granting the role 'roles/artifactregistry.reader'.","status":"PERMISSION_DENIED"}}
+[warn] ⚠  functions: failed to create function projects/textme-4b73b/locations/us-central1/functions/stripeCheckout 
+[error] Failed to create function projects/textme-4b73b/locations/us-central1/functions/stripeCheckout
+[debug] [2023-01-23T20:07:23.073Z] Total Function Deployment time: 366
+[debug] [2023-01-23T20:07:23.073Z] 1 Functions Deployed
+[debug] [2023-01-23T20:07:23.073Z] 1 Functions Errored
+[debug] [2023-01-23T20:07:23.073Z] 0 Function Deployments Aborted
+[debug] [2023-01-23T20:07:23.073Z] Average Function Deployment time: 365
+[info] 
+[info] Functions deploy had errors with the following functions:
+	stripeCheckout(us-central1)
+[info] i  functions: cleaning up build files... 
+[debug] [2023-01-23T20:07:23.226Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts/packages/stripe_checkout [none]
+[debug] [2023-01-23T20:07:23.227Z] >>> [apiv2][query] GET https://us.gcr.io/v2/textme-4b73b/gcf/us-central1/tags/list [none]
+[debug] [2023-01-23T20:07:24.007Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts/packages/stripe_checkout 404
+[debug] [2023-01-23T20:07:24.008Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts/packages/stripe_checkout {"error":{"code":404,"message":"Package \"projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts/packages/stripe_checkout\" was not found.","status":"NOT_FOUND"}}
+[debug] [2023-01-23T20:07:24.570Z] <<< [apiv2][status] GET https://us.gcr.io/v2/textme-4b73b/gcf/us-central1/tags/list 200
+[debug] [2023-01-23T20:07:24.571Z] <<< [apiv2][body] GET https://us.gcr.io/v2/textme-4b73b/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"textme-4b73b/gcf/us-central1","tags":[]}
+[debug] [2023-01-23T20:07:24.572Z] Could not find image for function projects/textme-4b73b/locations/us-central1/functions/stripeCheckout
+[debug] [2023-01-23T20:07:24.572Z] Functions deploy failed.
+[debug] [2023-01-23T20:07:24.572Z] {
+  "endpoint": {
+    "id": "stripeCheckout",
+    "project": "textme-4b73b",
+    "region": "us-central1",
+    "entryPoint": "stripeCheckout",
+    "platform": "gcfv1",
+    "runtime": "nodejs16",
+    "callableTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"textme-4b73b\",\"storageBucket\":\"textme-4b73b.appspot.com\",\"locationId\":\"europe-west\"}",
+      "GCLOUD_PROJECT": "textme-4b73b",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/textme-4b73b/locations/us-central1/functions/stripeCheckout"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "c6596ddc61355e80c5b854fe99e56b73b63add7d"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/textme-4b73b/locations/us-central1/functions/stripeCheckout"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/textme-4b73b/locations/us-central1/functions/stripeCheckout",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 403,
+            "message": "Unable to retrieve the repository metadata for projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts. Ensure that the Cloud Functions service account has 'artifactregistry.repositories.list' and 'artifactregistry.repositories.get' permissions. You can add the permissions by granting the role 'roles/artifactregistry.reader'.",
+            "status": "PERMISSION_DENIED"
+          }
+        },
+        "response": {
+          "statusCode": 403
+        }
+      },
+      "exit": 1,
+      "message": "HTTP Error: 403, Unable to retrieve the repository metadata for projects/textme-4b73b/locations/us-central1/repositories/gcf-artifacts. Ensure that the Cloud Functions service account has 'artifactregistry.repositories.list' and 'artifactregistry.repositories.get' permissions. You can add the permissions by granting the role 'roles/artifactregistry.reader'.",
+      "status": 403
+    },
+    "status": 500
+  }
+}
+[debug] [2023-01-23T20:07:24.619Z] Error: Failed to create function stripeCheckout in region us-central1
+    at /opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:48:11
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Fabricator.createV1Function (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:177:32)
+    at async Fabricator.createEndpoint (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:129:13)
+    at async handle (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:85:17)
+[error] 
+[error] Error: There was an error deploying functions

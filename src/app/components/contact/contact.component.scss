@@ -1,0 +1,18 @@
+section {
+    text-align: center;
+    padding: 10px;
+    form {
+        mat-form-field {
+            width: 80%;
+        }
+    }
+    button {
+        color: #fff !important;
+    }
+}
+
+#fxLayoutAlign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,49 @@
+<div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h1>Connexion</h1>
+        <form
+        [formGroup]="loginForm">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="text" class="formControl" placeholder="Email" #userEmail required
+            formControlName="email">
+            <mat-error>Email invalide ou manquant.</mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" placeholder="Mot de passe" #userPassword required
+            formControlName="password">
+          </mat-form-field>
+        </form>
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="button-container">
+          <div class="spinner-container" *ngIf="sending">
+            <mat-spinner diameter="24"></mat-spinner>
+          </div>
+          <button (click)="onSubmit(userEmail.value, userPassword.value)" type="submit" mat-raised-button color="accent" [disabled]="loginForm.invalid || sending">Se connecter</button>
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Ou</span></span>
+        </div>
+        <!-- Calling GoogleAuth Api from AuthService -->
+        <div class="formGroup">
+          <button mat-raised-button color="primary" type="button" (click)="authService.GoogleAuth()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+              <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+            </svg>
+           Connexion avec Google
+          </button>
+        </div>
+        <br />
+        <div class="forgotPassword">
+          <a routerLink="/forgot-password">Mot de passe oublié ?</a>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span>Vous n'avez pas de compte ?<a class="redirect" routerLink="/register-user"> Inscrivez-vous</a></span>
+      </div>
+    </div>
+  </div>
+  

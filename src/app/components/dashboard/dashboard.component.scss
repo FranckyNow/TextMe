@@ -1,0 +1,79 @@
+a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.article {
+    background-color: rgba(192, 192, 192, 0.2);
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+.right {
+    text-align: right;
+}
+
+#fxLayoutAlign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-sticky {
+    margin-bottom: 20px;
+    background-color: var(--mat-accent);
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    .left {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        justify-content: start;
+    }
+    .right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+    }
+}
+
+#note {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    mat-icon {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    a {
+        text-decoration: underline;
+    }
+}
+
+#issue {
+    text-align: right;
+}
+
+#noArticle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}

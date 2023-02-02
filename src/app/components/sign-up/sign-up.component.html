@@ -1,0 +1,59 @@
+<div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h1>Inscription</h1>
+        
+        <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <mat-form-field>
+            <input type="email" matInput placeholder="Votre email" ngModel name="email" email required #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">Le champ ne doit pas être vide.</mat-error>
+            <mat-error *ngIf="!emailInput.hasError('required')">Le courriel est invalide.</mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field hintLabel="6 caractères minimum">
+            <input type="password" matInput placeholder="Votre mot de passe" ngModel name="password" required minlength="6"
+              #pwInput="ngModel">
+            <mat-hint align="end">{{ pwInput.value?.length }} / 6</mat-hint>
+            <mat-error>Doit comporter au moins 6 caractères.</mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field hintLabel="6 caractères minimum">
+            <input type="password" matInput placeholder="Confirmer mot de passe" ngModel name="passwordVerif" required minlength="6"
+              #pwInput1="ngModel">
+          </mat-form-field>
+          <br /><br />
+          <a [routerLink]="['/cgv']" target="_blank" class="externe"><mat-icon>launch</mat-icon>Conditions générales de vente</a>
+          <a [routerLink]="['/cgu']" target="_blank" class="externe"><mat-icon>launch</mat-icon>Conditions générales d'utilisation</a>
+          <mat-checkbox ngModel name="agree" required color="accent">Acceptez les termes et conditions.</mat-checkbox>
+          <br />
+
+          <div class="button-container">
+            <div class="spinner-container" *ngIf="sending">
+              <mat-spinner diameter="24"></mat-spinner>
+            </div>
+            <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid || sending">S'inscrire</button>
+          </div>
+
+        </form>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Ou</span></span>
+        </div>
+        <!-- Continue with Google -->
+        <div class="formGroup">
+          <button mat-raised-button color="primary" type="button" (click)="authService.GoogleAuth()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+              <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+            </svg>
+           Inscription avec Google
+          </button>
+        </div>
+      </div>
+      <br />
+      <div class="redirectToLogin">
+        <span
+          >Vous avez déjà un compte ?
+          <a class="redirect" routerLink="/sign-in">Connectez-vous</a></span
+        >
+      </div>
+    </div>
+  </div>

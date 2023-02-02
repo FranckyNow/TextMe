@@ -1,0 +1,23 @@
+<section *ngIf="!send">
+    <form *ngIf="(userFirebase$ | async) as uf; else loading">
+        <h1>Complétez le champs suivant, nous vous répondrons au plus vite :</h1>
+
+        <mat-form-field>
+            <mat-label>Veuillez compléter ce champs</mat-label>
+            <input [formControl]="textFormControl" [(ngModel)]="textValue" matInput>
+            <mat-error *ngIf="textFormControl.hasError('pattern')">Il faut que votre texte commence par "Ecrivez un article "</mat-error>
+        </mat-form-field>
+        <br/>
+
+        <button mat-raised-button color="accent" [disabled]="textFormControl.invalid" (click)="sendMessage(uf.uid)"><mat-icon>send</mat-icon> Envoyer</button>
+    </form>
+    <ng-template #loading>
+        <div id="fxLayoutAlign">
+            <mat-spinner color="accent"></mat-spinner>
+        </div>
+    </ng-template>
+</section>
+<section *ngIf="send">
+    <h1>Merci de nous avoir contacté, votre requête nous a bien été transmise. nous revenons vers vous au plus vite.</h1>
+    <a routerLink="/">> Retourner à l'écriture d'articles</a>
+</section>

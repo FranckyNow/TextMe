@@ -1,0 +1,48 @@
+button {
+    color: #fff !important;
+}
+
+.authBlock {
+    text-align: center;
+    margin-top: 15px;
+    h1 {
+        text-align: center;
+    }
+}
+.redirectToLogin {
+    text-align: center;
+}
+
+a {
+    color: rgb(0, 8, 255);
+}
+
+.externe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.spinner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    display: inline-block;
+    position: relative;
+} 
+
+.mat-progress-spinner::ng-deep circle {
+    stroke: #000 !important;
+}

@@ -1,0 +1,140 @@
+<section>
+    <div *ngIf="selectedValue != '' && this.response == '' && !this.loadIA" id="explain">
+        <button color="accent" class="buttonBack" (click)="this.router.navigate(['/']);"><mat-icon>arrow_back_ios</mat-icon> précédent</button>
+        <div id="writingPart" *ngIf="this.state != 'succed'">
+            <h1>Pour votre article à destination des {{ selectedValue }}, complétez la phrase suivante :</h1>
+            <div id="formField">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Complétez cette phrase</mat-label>
+                    <input [formControl]="textFormControl" [(ngModel)]="textValue" matInput>
+                    <mat-error *ngIf="textFormControl.hasError('pattern')">Il faut que votre texte commence par "Ecrivez un article "</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="button-container">
+              <div class="spinner-container" *ngIf="sending">
+                <mat-spinner diameter="24"></mat-spinner>
+              </div>
+              <button (click)="checkoutFirebase()" type="submit" mat-raised-button color="accent" [disabled]="textFormControl.invalid || sending" id="checkout-button"><mat-icon>send</mat-icon> Obtenir mon texte</button>
+            </div>
+        </div>
+        <div id="center" *ngIf="this.state == 'succed'">
+            <mat-spinner></mat-spinner>
+            <h4>Votre article est en train d'être traité ou l'a déjà été.</h4>
+        </div>
+    </div>
+
+    <div *ngIf="this.loadIA && this.response == ''" id="loading">
+        <mat-spinner color="accent"></mat-spinner>
+        <div>
+            <div *ngIf="showMe1">
+                <mat-spinner [diameter]="20" color="accent"></mat-spinner>
+                <span>Recherche des informations concernant votre article</span>
+            </div>
+            <div *ngIf="showMe2">
+                <mat-spinner [diameter]="20" color="accent"></mat-spinner>
+                <span>Écriture de votre article</span>
+            </div>
+            <div *ngIf="showMe3">
+                <mat-spinner [diameter]="20" color="accent"></mat-spinner>
+                <span>Rendu en cours...</span>
+            </div>
+            <div *ngIf="showMe4">
+                <mat-spinner [diameter]="20" color="accent"></mat-spinner>
+                <span>Cela peut prendre jusqu'à 10 minutes maximum. Passées ce délai, si vous n'avez pas encore votre article, un bouton apparaitra pour signalez un problème</span>
+            </div>
+            <div id="issue" *ngIf="showMe5">
+                <mat-form-field appearance="outline" hintLabel="Nous vous recontacterons dans les plus bref délais">
+                <mat-label>Signaler un problème avec l'article</mat-label>
+                <mat-select [(ngModel)]="selectedIssu">
+                    <mat-option (click)="signalIssue()" value="display">Problème d'affichage</mat-option>
+                    <mat-option (click)="signalIssue()" value="error">Erreur dans l'article</mat-option>
+                    <mat-option (click)="signalIssue()" value="illogic">L'article n'est pas logique</mat-option>
+                    <mat-option (click)="signalIssue()" value="nothing">L'article n'a pas été retourné</mat-option>
+                    <mat-option (click)="signalIssue()" value="autre">Autre problème</mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="this.response != ''" id="response">
+        <button color="accent" class="buttonBack" (click)="reinitializ()"><mat-icon>arrow_back_ios</mat-icon> recommencer</button>
+        <h3>Votre article à destination des {{ selectedValue }} :</h3>
+        <p>Vous nous avez demandé : "<b>{{ textValue }}</b>"</p>
+        <div id="note">
+            <span>Votre note :</span>
+            <mat-icon class="material-icons-outlined" (click)="noteArticle(true)" *ngIf="thumbArticle == 1 || thumbArticle == 0">thumb_up</mat-icon>
+            <mat-icon class="material-icons-outlined" (click)="noteArticle(false)" *ngIf="thumbArticle == 2 || thumbArticle == 0">thumb_down</mat-icon>
+        </div>
+        <br /><br />
+        <div id="textToCopy">
+            <button *ngIf="!copyBoolean" mat-raised-button color="primary" (click)="copyText()"><mat-icon>content_copy</mat-icon>Copier le texte</button>
+            <button *ngIf="copyBoolean" disabled mat-raised-button color="accent"><mat-icon>done</mat-icon>Texte copié</button>
+            <p [innerHTML]="generateText(this.response)"></p>
+        </div>
+        <br />
+        <div id="issue">
+            <mat-form-field appearance="outline" hintLabel="Nous vous recontacterons dans les plus bref délais">
+            <mat-label>Signaler un problème avec l'article</mat-label>
+            <mat-select [(ngModel)]="selectedIssu">
+                <mat-option (click)="signalIssue()" value="display">Problème d'affichage</mat-option>
+                <mat-option (click)="signalIssue()" value="error">Erreur dans l'article</mat-option>
+                <mat-option (click)="signalIssue()" value="illogic">L'article n'est pas logique</mat-option>
+                <mat-option (click)="signalIssue()" value="nothing">L'article n'a pas été retourné</mat-option>
+                <mat-option (click)="signalIssue()" value="autre">Autre problème</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <br /><br />
+    <div id="articleExplain">
+        <div>
+            <mat-icon class="material-icons-outlined">document_scanner</mat-icon>
+            <b>Faites une phrase claire, avec tous les détails que vous jugez judicieux de fournir.</b>
+        </div>
+        <div>
+            <mat-icon class="material-icons-outlined">edit</mat-icon>
+            <b>Commencez par "Ecrivez un article" pour expliquer clairement que c'est un article que vous souhaitez.</b>
+        </div>
+        <div>
+            <mat-icon class="material-icons-outlined">history_edu</mat-icon>
+            <b>À la fin, n'hésitez pas à demander une longueur (Ex: ... avec 2000 caractères environ), le maximum étant 3000 caractères</b>
+        </div>
+    </div>
+    <br />
+    <div id="correctIncorrect">
+        <h1>Phrases Correct / Incorrect</h1>
+        <div>
+            <div>
+                <div>
+                    <mat-icon class="green">done</mat-icon>
+                    <span>Ecrivez un article expliquant la mort cellulaire</span>
+                </div>
+                <div>
+                    <mat-icon class="red">close</mat-icon>
+                    <span>Explique mort cellulaire</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <mat-icon class="green">done</mat-icon>
+                    <span>Ecrivez un article à destination des scientifque expliquant l'importance de la faune en 2000 caractères <b>environ</b></span>
+                </div>
+                <div>
+                    <mat-icon class="red">close</mat-icon>
+                    <span>Ecrivez un article à destination des scientifque expliquant l'importance de la faune en 2000 caractères</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <mat-icon class="green">done</mat-icon>
+                    <span>Ecrivez un article expliquant l'importance de l'hygiène dans la cuisine en anglais</span>
+                </div>
+                <div>
+                    <mat-icon class="red">close</mat-icon>
+                    <span>Ecrivez un article : l'importance de l'hygiène dans la cuisine anglais</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

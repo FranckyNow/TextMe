@@ -1,0 +1,21 @@
+img {
+    width: 45px;
+}
+
+mat-toolbar-row {
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: end;
+        width: 100%;
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

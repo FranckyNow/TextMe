@@ -1,0 +1,46 @@
+[debug] [2022-12-28T11:49:11.733Z] ----------------------------------------------------------------------
+[debug] [2022-12-28T11:49:11.734Z] Command:       /usr/local/bin/node /opt/homebrew/bin/firebase emulators:start
+[debug] [2022-12-28T11:49:11.734Z] CLI Version:   11.19.0
+[debug] [2022-12-28T11:49:11.734Z] Platform:      darwin
+[debug] [2022-12-28T11:49:11.734Z] Node Version:  v16.13.0
+[debug] [2022-12-28T11:49:11.735Z] Time:          Wed Dec 28 2022 12:49:11 GMT+0100 (heure normale d’Europe centrale)
+[debug] [2022-12-28T11:49:11.735Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-28T11:49:11.771Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-28T11:49:11.772Z] > authorizing via signed-in user (franck.gomez18.fg@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting"}}
+[debug] [2022-12-28T11:49:12.222Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] ⚠  hosting: Hosting Emulator unable to start on port 5000, starting on 5002 instead. {"metadata":{"emulator":{"name":"hosting"},"message":"Hosting Emulator unable to start on port 5000, starting on 5002 instead."}}
+[debug] [2022-12-28T11:49:12.222Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2022-12-28T11:49:12.222Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2022-12-28T11:49:12.226Z] [hub] writing locator at /var/folders/7f/qlzf4q2s1978pbgh5vdzrm0w0000gn/T/hub-textme-fadcb.json
+[debug] [2022-12-28T11:49:12.431Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2022-12-28T11:49:12.431Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2022-12-28T11:49:12.431Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2022-12-28T11:49:12.760Z] Error: Cannot find module '/Users/franck/Documents/ANGULAR/textme/textme/package.json'
+Require stack:
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/controller.js
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/commandUtils.js
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/commands/database-get.js
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/commands/index.js
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/index.js
+- /opt/homebrew/lib/node_modules/firebase-tools/lib/bin/firebase.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at FunctionsEmulator.getNodeBinary (/opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:636:21)
+    at FunctionsEmulator.start (/opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:192:39)
+    at Function.start (/opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/registry.js:18:24)
+    at startEmulator (/opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/controller.js:252:44)
+    at Object.startAll (/opt/homebrew/lib/node_modules/firebase-tools/lib/emulator/controller.js:349:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async /opt/homebrew/lib/node_modules/firebase-tools/lib/commands/emulators-start.js:32:43
+[error] 
+[error] Error: An unexpected error has occurred.

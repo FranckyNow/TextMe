@@ -1,0 +1,63 @@
+<section>
+    <div class="rowColumn">
+        <div id="personalCooker" layout="column" fxLayoutAlign="center center" fxFlex="80">
+            <h1>Ecrivez vos articles en quelques clics</h1>
+            <div class="alignStartCenter">
+            <div fxFlex="20">
+                <img src="../../assets/img/pexels-lisa-fotios-1438190-removebg-preview (1).png" />
+            </div>
+            <div fxFlex="80" class="gap150">
+                <div class="caseUnic" class="alignStartCenter">
+                <mat-icon class="material-icons-outlined">edit_note</mat-icon>
+                <h3>Des articles à votre image</h3>
+                </div>
+                <div class="caseUnic" id="marginLeft" class="alignStartCenter">
+                <mat-icon class="material-icons-outlined">more_time</mat-icon>
+                <h3>Gagnez du temps en automatisant l'écriture de vos articles</h3>
+                </div>
+                <div class="caseUnic" class="alignStartCenter">
+                <mat-icon class="material-icons-outlined">g_translate</mat-icon>
+                <h3>Des articles en anglais si vous le demander</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="writing">
+            <h1>Commencez à écrire votre article :</h1>
+            <mat-form-field appearance="outline" *ngIf="selectedValue == '' && this.response == ''">
+                <mat-label>Selectionnez l'audiance cible</mat-label>
+                <mat-select [(ngModel)]="selectedValue">
+                    <mat-option (click)="articleWriter()" value="clients">Clients</mat-option>
+                    <mat-option (click)="articleWriter()" value="professeurs">Professeurs</mat-option>
+                    <mat-option (click)="articleWriter()" value="scientifiques">Scientifiques</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="rowColumn" id="secondPart">
+        <div id="youtube" class="rowCenter">
+            <iframe src="https://www.youtube.com/embed/fmo6_A6j8W0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="text" class="rowCenter">
+            <p>Chez textme, nous comprenons l'importance de produire du contenu de qualité qui intéresse votre audience et qui respecte les règles SEO. C'est pourquoi nous avons développé une solution de rédaction automatique d'articles qui vous permet de créer du contenu de qualité en peu de temps.
+            <br />
+            Notre outil de rédaction automatique utilise l'apprentissage automatique pour comprendre les intérêts de votre audience et pour générer du contenu qui répond à leurs besoins. De plus, notre outil est conçu pour respecter les règles SEO, ce qui signifie que vous pouvez être sûr que votre contenu sera bien référencé par les moteurs de recherche.
+            <br />
+            En utilisant textme, vous pouvez être sûr de produire du contenu de qualité qui intéressera votre audience tout en respectant les règles SEO. N'hésitez pas à nous contacter pour en savoir plus sur notre solution de rédaction automatique d'articles.</p>
+        </div>
+    </div>
+    <div id="articleExplain">
+        <div>
+            <mat-icon class="material-icons-outlined">document_scanner</mat-icon>
+            <b>Des articles à votre image, par exemple "<i>Ecrivez un article expliquant l'évolution de l'alimentation au travers des âges</i>"</b>
+        </div>
+        <div>
+            <mat-icon class="material-icons-outlined">more_time</mat-icon>
+            <b>Arrêtons de perdre du temps à écrire des articles, avec textme c'est enfin automatique !</b>
+        </div>
+        <div>
+            <mat-icon class="material-icons-outlined">history_edu</mat-icon>
+            <b>L'article que vous souhaitez, sur le sujet souhaité. Pas de limite, ici on écrit sur tout ! (Même en anglais)</b>
+        </div>
+    </div>
+</section>

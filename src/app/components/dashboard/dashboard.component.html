@@ -1,0 +1,84 @@
+  <!-- Sidebar navigation -->
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="sidebar-sticky">
+        <div class="left">
+          <a (click)="type = 'profil'">
+            <mat-icon>account_circle</mat-icon>Profil</a>
+          <a (click)="type = 'articles'">
+            <mat-icon>description</mat-icon>Articles
+          </a>
+        </div>
+        <div class="right">
+          <a (click)="authService.SignOut()">
+            <mat-icon>logout</mat-icon>Déconnexion
+          </a>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <main *ngIf="type == 'profil'" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="inner-adjust">
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1>Profil</h1>
+          </div>
+          <!-- Show user data when logged in -->
+          <div class="row" *ngIf="authService.userData as user">
+            <div class="col-md-12">
+              <div class="media">
+                <div class="media-body">
+                  <h1>Bonjour <strong>{{(user.displayName) ? user.displayName : ''}}</strong></h1>
+                  <!--<p>User ID: <strong>{{user.uid}}</strong></p>-->
+                  <p>Email: <strong>{{user.email}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <main *ngIf="type == 'articles'" class="px-4">
+        <div class="pt-3 pb-2 mb-3 border-bottom">
+          <h1>Articles</h1>
+        </div>
+        <div *ngIf="(usersArticles$ | async) as articles; else loading">
+          <div *ngFor="let article of articles">
+            <div class="article">
+              <div class="right">
+                <button mat-raised-button color="primary" (click)="copyText(article.article)"><mat-icon>content_copy</mat-icon>Copier le texte</button>
+              </div>
+              <br />
+              <div id="note">
+                  <span>Votre note :</span>
+                  <mat-icon class="material-icons-outlined" *ngIf="article.appreciation === true || article.appreciation == null" (click)="noteArticle(article.id, true)">thumb_up</mat-icon>
+                  <mat-icon class="material-icons-outlined" *ngIf="article.appreciation === false || article.appreciation == null" (click)="noteArticle(article.id, false)">thumb_down</mat-icon>
+              </div>
+              <h1><b>"{{ article.ask }}"</b></h1>
+              <p [innerHTML]="(article.article) ? article.article : 'Il n\'y a pas d\'article associé'"></p>
+              <div class="right">
+                <h3><b>{{ article.totalPrice }}€</b></h3>
+              </div>
+              <div id="issue">
+                  <mat-form-field appearance="outline" hintLabel="Nous vous recontacterons dans les plus bref délais">
+                  <mat-label>Signaler un problème avec l'article</mat-label>
+                  <mat-select [(ngModel)]="article.issue">
+                      <mat-option (click)="signalIssue(article.userId, article.id, 'display')" value="display">Problème d'affichage</mat-option>
+                      <mat-option (click)="signalIssue(article.userId, article.id, 'error')" value="error">Erreur dans l'article</mat-option>
+                      <mat-option (click)="signalIssue(article.userId, article.id, 'illogic')" value="illogic">L'article n'est pas logique</mat-option>
+                      <mat-option (click)="signalIssue(article.userId, article.id, 'nothing')" value="nothing">L'article n'a pas été retourné</mat-option>
+                      <mat-option (click)="signalIssue(article.userId, article.id, 'autre')" value="autre">Autre problème</mat-option>
+                  </mat-select>
+                  </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div id="noArticle" *ngIf="articles.length == 0">
+            <span>Vous n'avez pas encore créé d'article <a routerLink="/">> Aller en écrire un premier</a></span> 
+          </div>
+        </div>
+        <ng-template #loading>
+            <div id="fxLayoutAlign">
+                <mat-spinner color="accent"></mat-spinner>
+            </div>
+        </ng-template>
+      </main>
+    </div>
+  </div>
